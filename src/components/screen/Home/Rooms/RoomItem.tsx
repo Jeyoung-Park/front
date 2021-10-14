@@ -18,16 +18,20 @@ interface RoomItemProps {
 
 const RoomItem = ({navigation, roomItem}: RoomItemProps) => {
   return (
-    <TouchableOpacity style={styles.container} onPress={()=>{
-      navigation.navigate('Room');
-    }}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => {
+        navigation.navigate('Room', {
+          roomId: roomItem.roomId,
+        });
+      }}>
       <Text style={styles.roomName}>{roomItem.roomName}</Text>
       <Text style={styles.platformName}>{roomItem.platformId}</Text>
       <View style={styles.iconsContainer}>
         {Array.from({length: roomItem.maxUser}, (value, index) => {
           return (
             <Icon
-              testID='icon-test'
+              testID="icon-test"
               key={index}
               style={styles.icon}
               name="smile-circle"
