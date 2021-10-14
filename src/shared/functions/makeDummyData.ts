@@ -14,6 +14,19 @@ export const getDummyCategories = (iter: number) => {
   return categoryFactory.buildList(iter);
 };
 
+export const getDummyRoom=(roomId:number)=>{
+  return {
+    roomId,
+    platformId: parseInt(String(Math.random()*10)),
+    bossUserId: parseInt(String(Math.random()*10)),
+    roomName: 'roomName',
+    totalPrice: 10000,
+    maxUser: 4,
+    personalPrice: 10000 / 4,
+    recentPayment: new Date(),
+  }
+}
+
 export const getDummyRooms = (iter: number) => {
   const roomFactory = Factory.Sync.makeFactory<RoomInterface>({
     roomId: Factory.each(i => i),
